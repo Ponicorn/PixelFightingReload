@@ -1,0 +1,160 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700);
+
+*{
+	box-sizing: border-box;
+	/*font-family: 'Lato', sans-serif;*/
+	font-family: 'PT Sans', sans-serif;
+	color : #2f4356;
+}
+
+html, body{
+	height: 100%;
+	width: 100%;
+	background:#ecf0f1;
+	min-width: 550px;
+}
+
+#title
+{
+	height     : 130px;
+	line-height: 130px;
+	font-size  : 60px;
+	text-align : center;
+	font-weight: bold;
+}
+
+#battleArea
+{
+	width: 100%;
+	display: flex;
+	/*justify-content: space-around;*/
+	justify-content: center ;
+	flex-wrap: wrap ;
+	margin-bottom: 30px;
+}
+
+#battleArea>div
+{
+	width: 508px;
+	height: 508px;
+	margin: 10px;
+}
+
+#progression 
+{
+	height: 240px;
+	margin-bottom: 20px;
+
+}
+
+#canvas, #chart, #prog
+{
+	border: 4px solid #2f4356;
+}
+
+#progression .bar
+{
+	display: flex;
+}
+#progression .bar .lib
+{
+	width       : 50px;
+	height      : 40px;
+	line-height : 40px;
+	font-weight : bold;
+	font-size   : 20px;
+}
+#progression .bar .lib:last-child
+{
+	 text-align: right;	
+}
+#prog
+{
+	width : 450px;
+	height: 40px;
+	position: relative;
+}
+#progin
+{
+	width:50%;
+	height: 32px;
+	position: absolute;
+	top:0;
+	left: 0;
+	transition: 0.1s;
+}
+
+
+#chrono
+{
+	text-align: center;
+	height: 200px;
+	line-height: 210px;
+	font-size: 50px;
+	font-weight: bold;
+}
+
+
+.barFlex {
+	display: flex;
+	justify-content: center ;
+	flex-wrap: wrap ;
+}
+.barFlex>div{
+	width: 320px;
+	margin-right: 31px;
+	height: 50px;
+	line-height: 42px;
+	font-size: 20px;
+	font-weight: bold;
+	border: 4px solid #2f4356;
+	box-sizing: border-box;
+	text-align: center;
+	cursor: pointer;
+
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+}
+.barFlex>div:last-child {
+	margin-right: 0;
+}
+
+
+
+@media screen and (max-width: 1059px) {
+  	.barFlex>div{
+		width: 500px;
+		margin: 10px;
+	}
+	.barFlex>div:last-child {
+		margin: 10px;
+	}
+	#bothcolor { 
+		background: linear-gradient(to bottom, attr(data-color2) , attr(data-color1) );
+	}
+}
+
+/************************************************************************/
+/*                             CHARTS DEFINITION                        */
+/************************************************************************/
+#chart {
+	width: 100%;
+	background: white;
+    height: 248px;
+}
+
+#chart .ct-line { 
+	stroke : #fff;
+	stroke-width:1px;
+}
+#chart .ct-point {
+	stroke : #fff;
+	stroke-width: 1px;
+}
+#chart .ct-area {
+	
+	fill-opacity: 1;
+}
