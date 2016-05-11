@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PXF</title>
+	<link rel="stylesheet" href="normalize.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="chartist.css">
+
+  	<script src="chartist.js"></script>
+	<script src="script.js"></script>
+</head>
+<body onload="setup()">
+
+<style id="stylingChartIsHard">
+	
+</style>
+
+	<div id="title" class="wordart">
+		Pixel Fighting 
+	</div>
+
+	<div id="battleArea">
+		<div id="canvas">
+			<canvas id="scrawl" height="500" width="500"></canvas>
+		</div>
+		
+		<div>
+			
+			<div id="progression">
+				
+				<div class="bar">
+					<div id="lib1" class="lib">50%</div>
+					<div id="prog"> <div id="progin"></div> </div>
+					<div id="lib2" class="lib">50%</div>
+				</div>
+
+				<div id="chrono">00:00:00</div>
+			</div>
+
+			<div id="chart"       class="ct-chart ct-perfect-fourth"></div>
+		</div>
+	</div>
+
+
+	<div class="barFlex">
+		<div onclick="changeColor(2);" id="color2">   RNG</div>
+		<div onclick="changeColor();"  id="bothcolor">RNG</div>
+		<div onclick="changeColor(1);" id="color1">   RNG </div>
+	</div>
+</body>
+
+</html>
