@@ -101,8 +101,8 @@ html, body{
 	flex-wrap: wrap ;
 }
 .barFlex>div{
-	width: 320px;
-	margin-right: 31px;
+	width: 324px;
+	margin-right: 32px;
 	height: 50px;
 	line-height: 42px;
 	font-size: 20px;
@@ -126,7 +126,7 @@ html, body{
 
 @media screen and (max-width: 1059px) {
   	.barFlex>div{
-		width: 500px;
+		width: 508px;
 		margin: 10px;
 	}
 	.barFlex>div:last-child {
