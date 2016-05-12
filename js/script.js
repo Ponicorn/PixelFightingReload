@@ -1,7 +1,7 @@
 'use strict';
 
 //Global var
-let wrkr, intervalNoWorker, startDate, timerLoop, color1, color2 , ctx, size, step , sum1, oldArray, newArray, siblings, ratio1, ratiopercent, data, myChart, countChart, chartHisto,macTickChart,end;
+let wrkr, intervalNoWorker, startDate, timerLoop, color1, color2 , ctx, size, step , sum1, oldArray, newArray, siblings, ratio1, ratiopercent, data, myChart, countChart, chartHisto,macTickChart,end, min1, min2;
 
 //Init the fight
 const setup = function() { 
@@ -163,6 +163,10 @@ const draw = function() {
 // init the first iteration
 const initialize = function() { 
 
+	//Set the minimun at 50%;
+	min1 = 50;
+	min2 = 50;
+
 	ratiopercent = 0.5;
 
 	oldArray = new Array(size);
@@ -216,7 +220,9 @@ const initialize = function() {
 	sum1 = sum1 / ( size * size );
 }
 
-//get the ratio
+// Look arround each pixel, to get
+// a ratio between 0 and 1, and prepare the random battle
+// in the calculate function
 const ratio = function() { 
 	for( let i = 0 ; i < size ; i++ ) {
 		for( let j = 0 ; j < size ; j++ ) {
@@ -321,9 +327,9 @@ const msToTime = function(s) {
 	if (mins < 10) mins = '0' + mins;
 	if (hrs < 10)  hrs  = '0' + hrs;
 
-
 	//Return formated date
 	return hrs + ':' + mins + ':' + secs ;
+
 }
 
 
@@ -396,6 +402,10 @@ const updateCharts = function(prct) {
 	document.querySelector("#lib1").innerHTML = percent1 + '%';
 	document.querySelector("#lib2").innerHTML = percent2 + '%';
 
+
+	//Save the minimum value
+	if( percent1 < min1 ) min1 = percent1;
+	if( percent2 < min2 ) min2 = percent2;
 
 	//We update the chart only every N tick
 	if( countChart > 50 ) {
