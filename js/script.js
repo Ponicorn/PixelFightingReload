@@ -412,8 +412,7 @@ const updateCharts = function(prct) {
 
 	if( progression < min1 )         min1 = progression;
 	if( (100 - progression) < min2 ) min2 = (100 - progression);
-
-	console.log(min1);
+	
 
 	document.querySelector("#minValue1").style.left = min1 + '%';
 	document.querySelector("#minValue2").style.left = (100 - min2) + '%';
