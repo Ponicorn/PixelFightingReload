@@ -88,11 +88,16 @@ const run = function() {
 		//Draw final state
 		draw();
 
+		//Draw the full chart with all the value
+		drawFullChart();
+
 		//Stop the clock
 		clearInterval(timerLoop);
 
+
 		//If we used the interval, clear it
 		if ( intervalNoWorker ) clearInterval(intervalNoWorker);
+
 		
 		end = true;
 
@@ -404,8 +409,15 @@ const updateCharts = function(prct) {
 
 
 	//Save the minimum value
-	if( percent1 < min1 ) min1 = percent1;
-	if( percent2 < min2 ) min2 = percent2;
+
+	if( progression < min1 )         min1 = progression;
+	if( (100 - progression) < min2 ) min2 = (100 - progression);
+
+	console.log(min1);
+
+	document.querySelector("#minValue1").style.left = min1 + '%';
+	document.querySelector("#minValue2").style.left = (100 - min2) + '%';
+
 
 	//We update the chart only every N tick
 	if( countChart > 50 ) {
@@ -417,6 +429,23 @@ const updateCharts = function(prct) {
 	}
 	countChart++;
 }	
+
+const drawFullChart = function() {
+
+	//We take all of the data, minu the n first element wich is placeholder value
+	// n => chartHisto
+
+	let arrayLength = data.length - chartHisto;
+	let newData = {};
+
+	newData.label  = new Array(arrayLength);
+	newData.series = [ data.slice(-1 * arrayLength) ];
+
+	myChart.data = newData;
+
+	myChart.update();
+
+}
 
 
 
@@ -457,6 +486,12 @@ const setTheColor = function() {
 	document.querySelector("#color2").style.background = color2;
 	document.querySelector("#color1").style.background = color1;
 	document.querySelector("#bothcolor").style.background = 'linear-gradient(to right, ' + color2 + ' , ' + color1 + ')';
+
+	//Minimum Value indicator
+	document.querySelector("#minValue1").style.background = color2;
+	document.querySelector("#minValue2").style.background = color1;
+
+
 }	
 
 //Change color1 or color2
